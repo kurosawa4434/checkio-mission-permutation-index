@@ -29,9 +29,9 @@ from checkio.referees.io import CheckiOReferee
 from checkio.referees import cover_codes
 from tests import TESTS
 
-cover_set_input = '''
+tuple_cover = '''
 def cover(func, in_data):
-    return sorted(func(set(in_data)))
+    return func(tuple(in_data))
 '''
 
 api.add_listener(
@@ -43,7 +43,7 @@ api.add_listener(
             'js': 'permutationIndex',
             },
         cover_code={
-            # 'python-3': cover_set_input,
+            'python-3': tuple_cover,
             'js-node': cover_codes.js_unwrap_args,
             }
         ).on_ready
